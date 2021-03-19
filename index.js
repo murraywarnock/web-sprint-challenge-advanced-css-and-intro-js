@@ -256,13 +256,13 @@ function get20s(array){
   let newArray = [];
   for (let i = 0; i < array.length; i++) {
     let lived = array[i].years.split(" - ");
-    if (lived[0] >= 1900 && lived[1] <= 2000) {
+    if (lived[0] > 1900 && lived[1] <= 2000) {
        newArray.push(array[i].name)
     }
   }
   return newArray;
 }
-// console.log(get20s(artists));
+ console.log(get20s(artists));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
