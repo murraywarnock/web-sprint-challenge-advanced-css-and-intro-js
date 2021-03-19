@@ -82,6 +82,7 @@ export const artists = [
     {
       "id": 8,
       "name": "Vincent van Dough",
+      // "name": "Vincent van Dough",
       "years": "1853 - 1890",
       "genre": "Post-Impressionism",
       "nationality": "Dutch",
@@ -208,9 +209,11 @@ Practice accessing data above by console.log-ing following items:
 (no functions needed) */
 
 //(1) Name of the first artist (0th index) in the array
+console.log(artists[0].name);
 
 
 //(2) Bio of the third artist (2nd index) in the array 
+console.log(artists[2].bio);
 
 
 
@@ -218,6 +221,10 @@ Practice accessing data above by console.log-ing following items:
 (no function needed) 
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
 
+if (artists[8].name !== "Vincent van Gogh") {
+  artists[8].name = "Vincent van Gogh";
+}
+console.log(artists[8].name);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
@@ -228,9 +235,11 @@ There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is current
  
  Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(/*Your Code Here*/) {
+function getArtistByIndex(array, index) {
   /*Your Code Here*/
+   return `the artist at index ${index} is ${artists[index].name}.`;
 }  
+console.log(getArtistByIndex(artists, 10));
 
 
 
@@ -242,10 +251,18 @@ Use get20s to do the following:
 Example born in 1901 and died in 1959 - included -- born in 1889 and died in 1925 not included
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s(/*Your Code Here*/){
+function get20s(array){
   /*Your Code Here*/
+  let newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    let lived = array[i].years.split(" - ");
+    if (lived[0] >= 1900 && lived[1] <= 2000) {
+       newArray.push(array[i].name)
+    }
+  }
+  return newArray;
 }
-
+console.log(get20s(artists));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
