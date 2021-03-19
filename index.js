@@ -237,7 +237,7 @@ console.log(artists[8].name);
 
 function getArtistByIndex(array, index) {
   /*Your Code Here*/
-   return `the artist at index ${index} is ${artists[index].name}.`;
+   return `the artist at index ${index} is ${artists[index].name}`;
 }  
 console.log(getArtistByIndex(artists, 10));
 
@@ -262,7 +262,7 @@ function get20s(array){
   }
   return newArray;
 }
-console.log(get20s(artists));
+// console.log(get20s(artists));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -274,10 +274,13 @@ console.log(get20s(artists));
  
  For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
-function removeArtist(/*Your Code Here*/){
+function removeArtist(array, index){
    /*Your Code Here*/
+  array.splice(index,1);
+  return array.length;
 }
-   
+// let remaining = removeArtist(artists, 0)
+// console.log(removeArtist(artists, 0));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use addArtist to do the following: 
@@ -295,9 +298,18 @@ Use addArtist to do the following:
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
-function addArtist(/*Your Code Here*/){
-    /*Your Code Here*/
+function addArtist(array){
+    array.push( { 
+      id: 20,
+      name: "Murray Warnock", 
+      years: "1963 - 2021",
+      genre: "Web Design", 
+      nationality: "USA",
+      bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    })
+    return array;
   }
+  // console.log(addArtist(artists));
 
   
 
@@ -308,10 +320,17 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/){
+function lotsOfArt(array){
   /*Your Code Here*/
+  let newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].paintings > 100) {
+       newArray.push(array[i].name)
+    }
+  }
+  return newArray;
 }
-
+// console.log(lotsOfArt(artists));
 
 
 
